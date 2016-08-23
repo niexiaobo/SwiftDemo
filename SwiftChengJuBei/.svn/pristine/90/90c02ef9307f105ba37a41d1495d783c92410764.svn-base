@@ -1,0 +1,34 @@
+//
+//  API.swift
+//  ChengJuBei
+//
+//  Created by liuyong on 16/6/4.
+//  Copyright © 2016年 hongzhi. All rights reserved.
+//
+
+import Foundation
+import Alamofire
+
+
+class API {
+    
+    func requestDataWith(url: String, dic: [String: AnyObject]?, callback: (AnyObject!, NSError?)->()) {
+        let params :[String: AnyObject]? = dic
+        let URL : String = AppInfoService +  url
+        
+        Alamofire.request(Alamofire.Method.POST, URL, parameters: params, encoding: Alamofire.ParameterEncoding.URL).response { (request, response, data, error) -> Void in
+            //把NSData对象转换回JSON对象
+            let data: NSData = data!
+            let json : AnyObject! = try? NSJSONSerialization
+                .JSONObjectWithData(data, options:NSJSONReadingOptions.AllowFragments)
+            print("Json Object:"); print(json)
+            
+            callback(json, error)
+        }
+    }
+    
+}
+
+public let APINameLogin : String = "appLogin/login.htmls"
+
+

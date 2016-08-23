@@ -1,0 +1,22 @@
+PODS:
+  - Alamofire (3.3.1)
+  - Kingfisher (2.3.1)
+  - MJExtension (3.0.10)
+  - MJRefresh (3.1.0)
+  - SVProgressHUD (2.0.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher
+  - MJExtension
+  - MJRefresh
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Kingfisher: 6d3fbada4829cbc7b89e883e8218c28afeb64e42
+  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+
+COCOAPODS: 0.39.0

@@ -1,0 +1,75 @@
+//
+//  HZHMeHeadCell.swift
+//  ChengJuBei
+//
+//  Created by 博彦科技-聂小波 on 16/6/14.
+//  Copyright © 2016年 hongzhi. All rights reserved.
+//
+
+import UIKit
+import Foundation
+
+class HZHMeHeadCell: UITableViewCell {
+    private var nameLabel: UILabel!
+    private var phoneLabel: UILabel!
+    private var iconView: IconView?
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        var orgY :CGFloat = 14.0
+        var orgX :CGFloat = 14.0
+        let cellH :CGFloat = 98.0
+        let imageH :CGFloat = 75.0
+        // 添加iconImageView
+        iconView = IconView(frame: CGRectMake(orgX, (cellH-imageH)/2.0, imageH, imageH))
+        iconView!.delegate = self
+//        iconView!.center = CGPointMake(0, 0)
+        self.addSubview(iconView!)
+        
+        orgY += 7.0
+        orgX += imageH + 11
+        // 名称
+        let loginLabelHeight: CGFloat = 20
+        nameLabel = UILabel(frame: CGRectMake(orgX, orgY, ScreenWidth - orgX, loginLabelHeight))
+        nameLabel.textAlignment = .Left
+        nameLabel.text = "登陆"
+        nameLabel.font = UIFont.systemFontOfSize(16)
+        nameLabel.textColor = UIColor(red: CGFloat(51.0) / 255.0, green: CGFloat(51.0) / 255.0, blue: CGFloat(51.0) / 255.0, alpha: 1)
+        self.addSubview(nameLabel)
+        orgY += 34.0
+        // 号码
+        phoneLabel = UILabel(frame: CGRectMake(orgX, orgY, ScreenWidth - orgX, loginLabelHeight))
+        phoneLabel.textAlignment = .Left
+        phoneLabel.text = "130****333"
+        phoneLabel.font = UIFont.systemFontOfSize(16)
+        phoneLabel.textColor = UIColor(red: CGFloat(153.0) / 255.0, green: CGFloat(153.0) / 255.0, blue: CGFloat(153.0) / 255.0, alpha: 1)
+        self.addSubview(phoneLabel)
+        
+        
+    }
+    class func settingCellWithTableView(tableView: UITableView) -> UITableViewCell {
+        let identifier: String = "HZHMeHeadCell"
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier(identifier)
+        if cell == nil {
+            cell = HZHMeHeadCell(style: .Default, reuseIdentifier: identifier)
+            cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell!.selectionStyle = .None
+            cell?.awakeFromNib()
+        }
+        
+        return cell!
+    }
+}
+/// MARK: iconViewDelegate
+extension HZHMeHeadCell: IconViewDelegate {
+    func iconView(iconView: IconView, didClick iconButton: UIButton) {
+        //        // TODO 判断用户是否登录了
+        //        if UserAccountTool.userIsLogin() {
+        //            iconActionSheet.showInView(view)
+        //        } else {
+        //            let login = LoginViewController()
+        //            navigationController?.pushViewController(login, animated: true)
+        //        }
+    }
+}

@@ -1,0 +1,40 @@
+//
+//  HZHLoginModel.swift
+//  ChengJuBei
+//
+//  Created by 博彦科技-聂小波 on 16/6/15.
+//  Copyright © 2016年 hongzhi. All rights reserved.
+//
+
+import Foundation
+
+class HZHLoginModel: NSObject {
+    /*
+     
+     Json Object:
+     {
+     code = 0;
+     data =     {
+     "user_info" =         {
+     "join_club_status" = 1;
+     "jump_club_number" = 0;
+     phone = 15895523287;
+     "session_id" = 791AAF2B2C6E81044EEAFC998F89EB77;
+     "sports_camp_id" = "";
+     "user_id" = 527;
+     "user_name" = "";
+     };
+     };
+     message = "\U6b63\U5e38";
+     }
+     
+     */
+    
+    var join_club_status : String?
+    var jump_club_number : String?
+    var phone : String?
+    var session_id : String?
+    var sports_camp_id : String?
+    var user_id : String?
+    var user_name : String?
+}

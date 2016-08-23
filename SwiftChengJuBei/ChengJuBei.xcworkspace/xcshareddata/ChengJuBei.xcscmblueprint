@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "de56e215-097a-4b86-8556-f5939eb7e41e++2842",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "de56e215-097a-4b86-8556-f5939eb7e41e++2842" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "de56e215-097a-4b86-8556-f5939eb7e41e++2842" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3DED080F-0A8B-4F3B-BE29-1968155067A3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "de56e215-097a-4b86-8556-f5939eb7e41e++2842" : "ChengJuBei\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ChengJuBei",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ChengJuBei.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/www.962121.net\/hmfmstest\/svn\/chengjubei",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "de56e215-097a-4b86-8556-f5939eb7e41e++2842"
+    }
+  ]
+}

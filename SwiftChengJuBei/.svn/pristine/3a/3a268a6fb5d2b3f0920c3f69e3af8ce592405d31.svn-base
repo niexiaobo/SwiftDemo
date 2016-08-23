@@ -1,0 +1,125 @@
+//
+//  HZHMeViewController.swift
+//  ChengJuBei
+//
+//  Created by liuyong on 16/6/4.
+//  Copyright © 2016年 hongzhi. All rights reserved.
+//
+
+import UIKit
+
+
+class HZHMeViewController: UIViewController {
+    private var loginLabel: UILabel!
+    private var tableView: UITableView!
+    
+    private lazy var mineIcons: NSMutableArray = NSMutableArray(array: ["cm-order", "config"])
+    private lazy var mineTitles: NSMutableArray = NSMutableArray(array: ["我的订单", "设置"])
+    private var iconView: IconView?
+    
+    enum SDMineCellType: Int {
+        /// 我的订单
+        case MyOrder = 0
+        /// 我的收藏
+        case MyCollect = 1
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.title = "我的"
+        // 设置tableView
+        setTableView()
+    }
+    
+    private func setTableView() {
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        tableView = UITableView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight - NavigationH - 49), style: UITableViewStyle.Grouped)
+        tableView.backgroundColor = UIColor(red: CGFloat(245.0) / 255.0, green: CGFloat(245.0) / 255.0, blue: CGFloat(245.0) / 255.0, alpha: 1)
+
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 45
+        tableView.sectionFooterHeight = 0.1
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        view.addSubview(tableView)
+        
+        // 设置tableView的headerView
+        let iconImageViewHeight: CGFloat = 180
+        let iconImageView = UIImageView(frame: CGRectMake(0, 0, ScreenWidth, iconImageViewHeight))
+//        iconImageView.image = UIImage(named: "k-portrait-default")
+        iconImageView.userInteractionEnabled = true
+        iconImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        // 添加未登录的文字
+        let loginLabelHeight: CGFloat = 40
+        loginLabel = UILabel(frame: CGRectMake(0, iconImageViewHeight - loginLabelHeight, ScreenWidth, loginLabelHeight))
+        loginLabel.textAlignment = .Center
+        loginLabel.text = "登陆,开始我的小日子"
+        loginLabel.font = UIFont.systemFontOfSize(16)
+        loginLabel.textColor = UIColor(red: CGFloat(51.0) / 255.0, green: CGFloat(51.0) / 255.0, blue: CGFloat(51.0) / 255.0, alpha: 1)
+        iconImageView.addSubview(loginLabel)
+        
+        // 添加iconImageView
+        iconView = IconView(frame: CGRectMake(0, 0, 100, 100))
+        iconView!.delegate = self
+        iconView!.center = CGPointMake(iconImageView.width * 0.5, (iconImageViewHeight - loginLabelHeight) * 0.5 + 8)
+        iconImageView.addSubview(iconView!)
+        
+        tableView.tableHeaderView = iconImageView
+    }
+
+}
+/// MARK: iconViewDelegate
+extension HZHMeViewController: IconViewDelegate {
+    func iconView(iconView: IconView, didClick iconButton: UIButton) {
+//        // TODO 判断用户是否登录了
+//        if UserAccountTool.userIsLogin() {
+//            iconActionSheet.showInView(view)
+//        } else {
+//            let login = LoginViewController()
+//            navigationController?.pushViewController(login, animated: true)
+//        }
+    }
+}
+/// MARK:UITableViewDelegate, UITableViewDataSource 代理方法
+extension HZHMeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return mineIcons.count
+        } else {
+            return 1
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let identifier: String = "cell"
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier(identifier)
+        if cell == nil {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
+            cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell!.selectionStyle = .None
+        }
+        if indexPath.section == 0 {
+            cell!.imageView!.image = UIImage(named: mineIcons[indexPath.row] as! String)
+            cell!.textLabel?.text = mineTitles[indexPath.row] as? String
+        } else {
+            cell!.imageView!.image = UIImage(named: "yaoyiyao")
+            cell!.textLabel!.text = "测试"
+        }
+        
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("didSelectRowAtIndexPath")
+    }
+    
+}
+
+
+

@@ -1,0 +1,16 @@
+platform :ios, '8.0'
+use_frameworks!
+
+#pod install --verbose --no-repo-update
+
+pod 'Alamofire'
+pod 'SVProgressHUD'
+pod 'MJRefresh'
+pod 'MJExtension'
+pod 'Kingfisher'
+pod 'YYWebImage'
+pod 'SnapKit'
+pod 'BMPlayer', '~> 0.2.0'
+pod 'NVActivityIndicatorView', '~> 2.6'
+pod 'SwipeBack'
+pod 'swiftScan'

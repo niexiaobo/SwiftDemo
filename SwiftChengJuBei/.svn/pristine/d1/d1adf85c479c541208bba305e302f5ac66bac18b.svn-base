@@ -1,0 +1,97 @@
+//
+//  HZHHomeViewController.swift
+//  ChengJuBei
+//
+//  Created by liuyong on 16/6/4.
+//  Copyright © 2016年 hongzhi. All rights reserved.
+//
+
+import UIKit
+
+class HZHHomeViewController: UIViewController {
+
+    private var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.title = "首页"
+        // 设置tableView
+        setTableView()
+        
+        #if DEBUG
+        
+            print("debug")
+        #else
+        
+            print("non debug")
+        #endif
+        
+        
+        requestData()
+    }
+    func requestData(){
+        
+        let apiRequest = API()
+        if HZHUserAccountTool.userIsLogin() {
+            let SessionId: String? = HZHUserAccountTool.userSessionId()
+            let dics : NSDictionary = ["session_id": SessionId! , "platform_id" : "2" , "language_abbreviation" : "zh"]
+
+            apiRequest.requestDataWith(APINameHomeV5, dic: dics as? [String : AnyObject]) { (jsonData, errorMsg) -> () in
+                if errorMsg != getMessageSuccess {
+                    apiRequest.getMessageError(errorMsg!)
+                }else{
+                    //返回信息为nil表示成功
+                    
+                }
+                
+            }
+        }
+        
+    }
+
+    private func setTableView() {
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        tableView = UITableView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight - NavigationH - 49), style: UITableViewStyle.Plain)
+        tableView.backgroundColor = UIColor(red: CGFloat(245.0) / 255.0, green: CGFloat(245.0) / 255.0, blue: CGFloat(245.0) / 255.0, alpha: 1)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+//        tableView.rowHeight = 298
+        tableView.sectionFooterHeight = 0.1
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        view.addSubview(tableView)
+        
+    }
+    
+}
+
+/// MARK:UITableViewDelegate, UITableViewDataSource 代理方法
+extension HZHHomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        return 250
+
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = HZHHomeViewCell.settingCellWithTableView(tableView)
+        let HomeViewCell :HZHHomeViewCell = cell
+        HomeViewCell.HomeCellImage.contentMode = .ScaleAspectFit
+        HomeViewCell.HomeCellImage.sd_setImageWithURL(NSURL(string: "http://image.tianjimedia.com/uploadImages/2015/129/56/J63MI042Z4P8.jpg")!, placeholderImage: UIImage(named: "zhanwei1")!)
+        return HomeViewCell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("didSelectRowAtIndexPath")
+    }
+    
+}
+

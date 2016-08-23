@@ -1,0 +1,19 @@
+//
+//  HZHDefine.swift
+//  ChengJuBei
+//
+//  Created by liuyong on 16/6/4.
+//  Copyright © 2016年 hongzhi. All rights reserved.
+//
+
+import UIKit
+
+public let NavigationH: CGFloat = 64
+public let ScreenWidth: CGFloat = UIScreen.mainScreen().bounds.size.width
+public let ScreenHeight: CGFloat = UIScreen.mainScreen().bounds.size.height
+public let MainBounds: CGRect = UIScreen.mainScreen().bounds
+
+//导航栏颜色（红色）
+public let NavBarColor: UIColor = UIColor.init(red: 217/255.0, green: 2/255.0, blue: 0/255.0, alpha: 1.0)
+
+public let AppInfoService : String = "http://10.249.181.135:8080/springmvc_mybatis_demo/"

@@ -1,0 +1,13 @@
+//
+//  HZHMatchInfoModel.swift
+//  ChengJuBei
+//
+//  Created by liuyong on 16/6/4.
+//  Copyright © 2016年 hongzhi. All rights reserved.
+//
+
+import UIKit
+
+class HZHMatchInfoModel: NSObject {
+
+}

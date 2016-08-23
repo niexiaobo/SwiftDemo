@@ -1,0 +1,56 @@
+//
+//  HZHMatchViewController.swift
+//  ChengJuBei
+//
+//  Created by liuyong on 16/6/4.
+//  Copyright © 2016年 hongzhi. All rights reserved.
+//
+
+import UIKit
+import Alamofire
+
+class HZHMatchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet var tableView: UITableView!
+    
+    lazy var dataArray: [HZHMatchInfoModel] = [HZHMatchInfoModel]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        
+        self.title = "赛事"
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+
+
+    private func loadData(){
+        
+
+    }
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 200.0
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        return cell
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+}

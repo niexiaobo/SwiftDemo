@@ -1,0 +1,42 @@
+//
+//  HZHtableHeadView.swift
+//  ChengJuBei
+//
+//  Created by 博彦科技-聂小波 on 16/7/1.
+//  Copyright © 2016年 hongzhi. All rights reserved.
+//
+
+import UIKit
+
+class HZHtableHeadView: UIView {
+
+    internal var leftButton: UIButton?
+    internal var rightButton: UIButton?
+    var imageH = ScreenWidth * (150.0 / 300.0)
+    var ButtonH: CGFloat = 60.0
+    override func drawRect(rect: CGRect) {
+        // Drawing code
+        self.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height:self.imageH + self.ButtonH)
+        
+        self.addSubview(tableHeadView)
+    }
+    private lazy var tableHeadView: UIView = {
+        let tableHeadView = UIView(frame: self.bounds)
+        tableHeadView.backgroundColor = UIColor.whiteColor()
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height:self.imageH))
+        imageView.image = UIImage.init(named: "组-9")
+        tableHeadView.addSubview(imageView)
+        
+        self.leftButton = UIButton(frame: CGRectMake( 0 , self.imageH, ScreenWidth/2.0, self.ButtonH))
+        self.rightButton = UIButton(frame: CGRectMake(ScreenWidth/2.0 , self.imageH, ScreenWidth/2.0, self.ButtonH))
+        self.leftButton!.setTitle("俱乐部成员", forState: UIControlState.Normal)
+        self.leftButton!.setTitleColor(DarkColor153, forState: UIControlState.Normal)
+        self.rightButton!.setTitle("活动", forState: UIControlState.Normal)
+        self.rightButton!.setTitleColor(DarkColor153, forState: UIControlState.Normal)
+        tableHeadView.addSubview(self.leftButton!)
+        tableHeadView.addSubview(self.rightButton!)
+        
+        return tableHeadView
+    }()
+}
