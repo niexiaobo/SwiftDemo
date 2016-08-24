@@ -6,16 +6,23 @@
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DD1B6C83238DEB0A3427540943B93541FFADE0D4" : 0,
     "de56e215-097a-4b86-8556-f5939eb7e41e++2842" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3DED080F-0A8B-4F3B-BE29-1968155067A3",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DD1B6C83238DEB0A3427540943B93541FFADE0D4" : "",
     "de56e215-097a-4b86-8556-f5939eb7e41e++2842" : "ChengJuBei\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "ChengJuBei",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ChengJuBei.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/niexiaobo\/SwiftDemo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DD1B6C83238DEB0A3427540943B93541FFADE0D4"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/www.962121.net\/hmfmstest\/svn\/chengjubei",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
